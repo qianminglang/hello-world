@@ -1,6 +1,8 @@
 package org.example.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import com.example.entity.User;
+import com.example.service.HelloService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -11,9 +13,32 @@ import org.springframework.web.bind.annotation.RestController;
  * Version 1.0
  **/
 @RestController
-public class HelloController {
-    @GetMapping("/hello")
-    public String hello(String name) {
-        return "hello 9007" + name + " !";
+public class HelloController implements HelloService {
+    @Value("${server.port}")
+    Integer serverPort;
+
+    @Override
+    public String hello(User user) {
+        return "hello " + serverPort + user + " !";
+    }
+
+    @Override
+    public void deleteUserById(Long id) {
+
+    }
+
+    @Override
+    public User getUserByName(String name) {
+        return null;
+    }
+
+    @Override
+    public User addUser(User user) {
+        return null;
+    }
+
+    @Override
+    public void updateUserById(String name, Long id) {
+
     }
 }

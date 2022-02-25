@@ -19,6 +19,7 @@
         <module>eureka-provider-9006</module>
         <module>eureka-provider-9007</module>
         <module>eureka-consumer-9008</module>
+        <module>feign-consumer</module>
     </modules>
 
     <properties>

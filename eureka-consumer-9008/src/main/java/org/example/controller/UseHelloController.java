@@ -1,9 +1,12 @@
 package org.example.controller;
 
+import com.example.entity.User;
 import com.example.util.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -27,9 +30,9 @@ public class UseHelloController {
     RestTemplate loadBalancer;
 
 
-    @RequestMapping("/hello")
-    public R hello(String name) {
-        String result = loadBalancer.getForObject("http://eureka-provider/hello", String.class);
-        return R.success(result);
+    @PostMapping("/hello")
+    public R hello(@RequestBody User user) {
+        ResponseEntity<String> stringResponseEntity = loadBalancer.postForEntity("http://eureka-provider/hello", user, String.class);
+        return R.success(stringResponseEntity.getBody());
     }
 }
