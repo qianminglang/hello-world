@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: eureka-provider
+server:
+  port: 9006
+eureka:
+  client:
+    service-url:
+      defaultZone: http://clear02:9002/eureka/

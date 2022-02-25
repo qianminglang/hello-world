@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: consule-provider
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      #注册到consul的服务名称
+      discovery:
+        service-name: consule-provider
+server:
+  port: 9003

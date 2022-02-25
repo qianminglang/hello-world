@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: eureka-consumer-9008
+server:
+  port: 9008
+eureka:
+  client:
+    service-url:
+      defaultZone: http://clear02:9002/eureka/
