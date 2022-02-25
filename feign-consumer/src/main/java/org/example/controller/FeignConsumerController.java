@@ -25,4 +25,9 @@ public class FeignConsumerController {
         return feignService.hello(user);
     }
 
+    @PostMapping("/addUser")
+    public User addUser(@RequestBody User user) {
+        return feignService.addUser(user);
+    }
+
 }

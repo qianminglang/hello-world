@@ -15,4 +15,5 @@ import java.io.Serializable;
 public class User implements Serializable {
     private String userName;
     private String age;
+    private Integer port;
 }

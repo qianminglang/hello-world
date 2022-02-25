@@ -34,7 +34,8 @@ public class HelloController implements HelloService {
 
     @Override
     public User addUser(User user) {
-        return null;
+        user.setPort(serverPort);
+        return user;
     }
 
     @Override

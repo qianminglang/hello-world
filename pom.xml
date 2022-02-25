@@ -20,6 +20,7 @@
         <module>eureka-provider-9007</module>
         <module>eureka-consumer-9008</module>
         <module>feign-consumer</module>
+        <module>resilience4j</module>
     </modules>
 
     <properties>
@@ -30,6 +31,10 @@
         <eureka-server.version>2.1.1.RELEASE</eureka-server.version>
         <eureka-client.version>2.1.1.RELEASE</eureka-client.version>
         <lombok.version>1.18.12</lombok.version>
+        <circuitbreaker.version>0.13.2</circuitbreaker.version>
+        <ratelimiter.version>0.13.2</ratelimiter.version>
+        <bulkhead.version>0.13.2</bulkhead.version>
+        <junit.version>4.12</junit.version>
     </properties>
 
     <dependencyManagement>
@@ -63,6 +68,31 @@
                 <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
                 <version>${eureka-client.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>io.github.resilience4j</groupId>
+                <artifactId>resilience4j-circuitbreaker</artifactId>
+                <version>${circuitbreaker.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.resilience4j</groupId>
+                <artifactId>resilience4j-ratelimiter</artifactId>
+                <version>${ratelimiter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.resilience4j</groupId>
+                <artifactId>resilience4j-bulkhead</artifactId>
+                <version>${bulkhead.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

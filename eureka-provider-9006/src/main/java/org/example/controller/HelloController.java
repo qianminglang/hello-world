@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController implements HelloService {
     @Value("${server.port}")
-    Integer port;
+    Integer serverPort;
 
     @Override
     public String hello(User user) {
-        return "hello " + port + user + " !";
+        return "hello " + serverPort + user + " !";
     }
 
     @Override
@@ -34,7 +34,8 @@ public class HelloController implements HelloService {
 
     @Override
     public User addUser(User user) {
-        return null;
+        user.setPort(serverPort);
+        return user;
     }
 
     @Override

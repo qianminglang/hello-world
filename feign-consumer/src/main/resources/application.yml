@@ -7,3 +7,21 @@ eureka:
   client:
     service-url:
       defaultZone: http://clear01:9001/eureka/
+#日志级别
+logging:
+  level:
+    org:
+      example:
+        service:
+          FeignService: debug
+#数据压缩
+feign:
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+ribbon:
+  MaxAutoRetries:3
+  MaxAutoRetriesNextServer:1
+  OkToRetryOnAllOperations:false
