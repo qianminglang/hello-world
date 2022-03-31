@@ -1,42 +1,37 @@
 package com.clear.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author qml
  * @since 2022-03-30
  */
+@Entity
 @Data
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
-public class Position extends Model<Position> {
+@Table(name = "position")
+public class Position implements Serializable {
 
-private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
-    @TableId(value = "Id", type = IdType.AUTO)
-    private Long Id;
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long Id;
 
+    @Column(name = "name")
     private String name;
 
+    @Column(name = "salary")
     private String salary;
 
+    @Column(name = "city")
     private String city;
-
-
-    @Override
-    protected Serializable pkVal() {
-        return this.Id;
-    }
 
 }
