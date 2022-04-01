@@ -1,8 +1,10 @@
 package dao;
 
 import com.clear.RunBoot;
+import com.clear.dao.PositionDetailRepository;
 import com.clear.dao.PositionRepository;
 import com.clear.entity.Position;
+import com.clear.entity.PositionDetail;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,15 +21,31 @@ public class TestShardingDatabase {
     @Resource
     PositionRepository positionRepository;
 
+    @Resource
+    PositionDetailRepository positionDetailRepository;
+
     @Test
     public void testAdd() {
-        for (int i = 1; i < 20; i++) {
+        for (int i = 0; i < 20; i++) {
             Position position = new Position();
 //            position.setId(i);
             position.setName("lagou" + i);
             position.setSalary(String.valueOf(i));
             position.setCity(String.valueOf(i));
             positionRepository.save(position);
+
+
+            PositionDetail positionDetail = new PositionDetail();
+            positionDetail.setPid(position.getId());
+            positionDetail.setDescription("职位描述"+i);
+            positionDetailRepository.save(positionDetail);
         }
+    }
+
+    @Test
+    public void findById() {
+        Object object=positionRepository.findPositionsById(716796791785259008L);
+        Object[] object1 = (Object[]) object;
+        System.out.println(object1[0]+" "+object1[1]);
     }
 }
