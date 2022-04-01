@@ -7,10 +7,11 @@ import org.apache.shardingsphere.spi.keygen.ShardingKeyGenerator;
 import java.util.Properties;
 @Slf4j
 public class SelfGeneratorId implements ShardingKeyGenerator {
+    private  SnowflakeShardingKeyGenerator snow = new SnowflakeShardingKeyGenerator();
     @Override
     public Comparable<?> generateKey() {
         log.info("使用雪花算法作为自己得id生成器");
-        return new SnowflakeShardingKeyGenerator().generateKey();
+        return snow.generateKey();
     }
 
     @Override
