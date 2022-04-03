@@ -1,8 +1,10 @@
 package dao;
 
 import com.clear.RunBoot;
+import com.clear.dao.CityRepository;
 import com.clear.dao.PositionDetailRepository;
 import com.clear.dao.PositionRepository;
+import com.clear.entity.City;
 import com.clear.entity.Position;
 import com.clear.entity.PositionDetail;
 import org.junit.Test;
@@ -24,6 +26,9 @@ public class TestShardingDatabase {
     @Resource
     PositionDetailRepository positionDetailRepository;
 
+    @Resource
+    CityRepository cityRepository;
+
     @Test
     public void testAdd() {
         for (int i = 0; i < 20; i++) {
@@ -37,15 +42,23 @@ public class TestShardingDatabase {
 
             PositionDetail positionDetail = new PositionDetail();
             positionDetail.setPid(position.getId());
-            positionDetail.setDescription("职位描述"+i);
+            positionDetail.setDescription("职位描述" + i);
             positionDetailRepository.save(positionDetail);
         }
     }
 
     @Test
     public void findById() {
-        Object object=positionRepository.findPositionsById(716796791785259008L);
+        Object object = positionRepository.findPositionsById(716796791785259008L);
         Object[] object1 = (Object[]) object;
-        System.out.println(object1[0]+" "+object1[1]);
+        System.out.println(object1[0] + " " + object1[1]);
+    }
+
+    @Test
+    public void brocast() {
+        City city = new City();
+        city.setProvince("jiangsu");
+        city.setName("lyg");
+        cityRepository.save(city);
     }
 }
