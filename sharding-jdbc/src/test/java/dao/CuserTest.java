@@ -1,7 +1,7 @@
 package dao;
 
 import com.clear.RunBoot;
-import com.clear.dao.CuserRepository;
+import com.clear.repository.CuserRepository;
 import com.clear.entity.CUser;
 import org.junit.Test;
 import org.junit.runner.RunWith;

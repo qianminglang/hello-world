@@ -1,10 +1,10 @@
 package dao;
 
 import com.clear.RunBoot;
-import com.clear.dao.BOrderRepository;
-import com.clear.dao.CityRepository;
-import com.clear.dao.PositionDetailRepository;
-import com.clear.dao.PositionRepository;
+import com.clear.repository.BOrderRepository;
+import com.clear.repository.CityRepository;
+import com.clear.repository.PositionDetailRepository;
+import com.clear.repository.PositionRepository;
 import com.clear.entity.BOrder;
 import com.clear.entity.City;
 import com.clear.entity.Position;

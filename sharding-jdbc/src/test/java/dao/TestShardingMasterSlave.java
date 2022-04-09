@@ -1,7 +1,7 @@
 package dao;
 
 import com.clear.RunBoot;
-import com.clear.dao.CityRepository;
+import com.clear.repository.CityRepository;
 import com.clear.entity.City;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.clear.dao;
+package com.clear.repository;
 
 import com.clear.entity.PositionDetail;
 import org.springframework.data.jpa.repository.JpaRepository;

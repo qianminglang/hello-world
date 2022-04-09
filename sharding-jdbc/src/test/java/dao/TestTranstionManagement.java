@@ -1,8 +1,8 @@
 package dao;
 
 import com.clear.RunBoot;
-import com.clear.dao.PositionDetailRepository;
-import com.clear.dao.PositionRepository;
+import com.clear.repository.PositionDetailRepository;
+import com.clear.repository.PositionRepository;
 import com.clear.entity.Position;
 import com.clear.entity.PositionDetail;
 import org.apache.shardingsphere.transaction.annotation.ShardingTransactionType;
