@@ -68,6 +68,32 @@
         </dependency>
 
 
+        <dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>sharding-transaction-xa-core</artifactId>
+            <version>4.0.0-RC2</version>
+        </dependency>
+
+
+<!--        //XA模式-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.shardingsphere</groupId>-->
+<!--            <artifactId>sharding-transaction-xa-core</artifactId>-->
+<!--            <version>${shardingsphere.version}</version>-->
+<!--        </dependency>-->
+<!--&lt;!&ndash;        //Saga模式&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>io.shardingsphere</groupId>-->
+<!--            <artifactId>sharding-transaction-base-saga</artifactId>-->
+<!--            <version>${shardingsphere-spi-impl.version}</version>-->
+<!--        </dependency>-->
+<!--&lt;!&ndash;        //Seata模式&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.shardingsphere</groupId>-->
+<!--            <artifactId>sharding-transaction-base-seata-at</artifactId>-->
+<!--            <version>${sharding-sphere.version}</version>-->
+<!--        </dependency>-->
+
     </dependencies>
 
 </project>
