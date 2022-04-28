@@ -21,6 +21,8 @@
         <module>eureka-consumer-9008</module>
         <module>feign-consumer</module>
         <module>resilience4j</module>
+        <module>sharding-jdbc</module>
+        <module>sharding-proxy</module>
     </modules>
 
     <properties>
