@@ -24,6 +24,7 @@
         <module>sharding-jdbc</module>
         <module>sharding-proxy</module>
         <module>mina</module>
+        <module>netty</module>
     </modules>
 
     <properties>
