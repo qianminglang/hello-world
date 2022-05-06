@@ -23,6 +23,7 @@
         <module>resilience4j</module>
         <module>sharding-jdbc</module>
         <module>sharding-proxy</module>
+        <module>mina</module>
     </modules>
 
     <properties>
