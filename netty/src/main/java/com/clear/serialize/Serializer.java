@@ -1,6 +1,5 @@
 package com.clear.serialize;
 
-import com.alibaba.fastjson.serializer.JSONSerializer;
 
 /**
  * ClassName Serializer
