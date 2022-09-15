@@ -4,7 +4,6 @@ import com.clear.serialize.JSONSerializer;
 import com.clear.serialize.Serializer;
 import com.clear.serialize.SerializerAlgorithm;
 import io.netty.buffer.ByteBuf;
-import io.netty.buffer.ByteBufAllocator;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +25,7 @@ public class PacketCodeC {
     private static final int MAGIC_NUMBER = 0x12345678;
 
     //创建一个静态实例供外部调用
-    private static final PacketCodeC INSTANCE = new PacketCodeC();
+    public static final PacketCodeC INSTANCE = new PacketCodeC();
 
     //创建两个map，一个存储数据类型（如是登录数据还是普通消息），第二个是存储序列化类型
     private final Map<Byte, Class<? extends Packet>> packageTypeMap;
@@ -42,10 +41,8 @@ public class PacketCodeC {
     }
 
     //编码
-    public ByteBuf encode(ByteBufAllocator byteBufAllocator, Packet packet) {
+    public ByteBuf encode(ByteBuf  byteBuf, Packet packet) {
         //创建ByteBuf对象
-        ByteBuf byteBuf = byteBufAllocator.ioBuffer();
-
         //序列化java对象
         byte[] bytes = Serializer.DEFAULT.serialize(packet);
 

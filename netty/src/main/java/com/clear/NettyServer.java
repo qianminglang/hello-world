@@ -1,11 +1,14 @@
 package com.clear;
 
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import io.netty.util.AttributeKey;
 
 /**
@@ -33,7 +36,12 @@ public class NettyServer {
         ServerBootstrap serverBootstrap = new ServerBootstrap();
         serverBootstrap.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class).childHandler(new ChannelInitializer<NioSocketChannel>() {
             protected void initChannel(NioSocketChannel ch) {
-                ch.pipeline().addLast(new FirstServerHandler());
+//                ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE,7,4));
+//                ch.pipeline().addLast(new PacketDecoder());
+                ByteBuf delimiter = Unpooled.copiedBuffer("\r\n".getBytes());
+                ch.pipeline().addLast(new DelimiterBasedFrameDecoder(99999,delimiter));
+                ch.pipeline().addLast(new LoginRequestHandler());
+//                ch.pipeline().addLast(new PacketEncoder());
             }
         });
 

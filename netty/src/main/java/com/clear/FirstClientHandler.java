@@ -28,7 +28,6 @@ public class FirstClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         for (int i = 0; i < 1000; i++) {
-            System.out.println("客户端发送消息"+i);
             //1.获取数据
             ByteBuf byteBuf = getByteBuf(ctx);
             //2.写数据

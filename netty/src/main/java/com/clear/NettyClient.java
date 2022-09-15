@@ -34,8 +34,11 @@ public class NettyClient {
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
-                        //添加一个逻辑处理器
-                        ch.pipeline().addLast(new FirstClientHandler());
+                        //解码一定要放在第一个，在这里pipeline按顺序执行，不然接收消息无法正常使用
+//                        ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE,7,4));
+//                        ch.pipeline().addLast(new PacketDecoder());
+                        ch.pipeline().addLast(new LoginResponseHandler());
+//                        ch.pipeline().addLast(new PacketEncoder());
                     }
                 });
         //连接

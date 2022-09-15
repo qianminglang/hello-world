@@ -5,7 +5,6 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Date;
 
 /**
  * ClassName FirstServerHandler
@@ -20,7 +19,7 @@ public class FirstServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf byteBuf = (ByteBuf) msg;
-        System.out.println(new Date() + ":服务端读取到数据->" + byteBuf.toString(StandardCharsets.UTF_8));
+        System.out.println( byteBuf.toString(StandardCharsets.UTF_8));
         ByteBuf out = getOut(ctx);
         ctx.channel().writeAndFlush(out);
     }
